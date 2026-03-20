@@ -53,8 +53,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import StratifiedShuffleSplit, GridSearchCV, cross_val_score
 from IPython.display import display, Image
 from sklearn.model_selection import cross_val_score,StratifiedKFold
-st.title('Application of Machine Learning Methods to Predict pCR in TNBC Patients'.center(33, '-'))
-classes = {0:'Non-pCR',1:'pCR'}
+st.title('Application of Machine Learning Methods to Predict Brain Metastasis in Breast Cancer Patients'.center(33, '-'))
+classes = {0:'No',1:'Yes'}
 st.sidebar.expander('')     
 st.sidebar.subheader('Variable')       
 # ki_67=st.sidebar.selectbox('ki_67', ['Negative',"Positive"])
@@ -80,7 +80,7 @@ Stage_map = {'Stage I':0,'Stage II':1,'Stage III':2,"Stage IV":3}
 Breast_subtype=st.sidebar.selectbox('Breast_subtype',['HR-/HER2-','HR-/HER2+','HR+/HER2-',"HR+/HER2+"])
 Breast_subtype_map = {'HR-/HER2-':0,'HR-/HER2+':1,'HR+/HER2-':2,"HR+/HER2+":3}
 HER2=st.sidebar.selectbox('HER2', ['Negative',"Positive"])
-HER2_map = {'No':0,'Yes':1}
+HER2_map = {'Negative':0,'Positive':1}
 # IIS = st.sidebar.number_input('IIS', min_value=-10.0, max_value=10.0, value=0.001, step=1.0)
 # HER2_map = {'Negative':0,'Positive':1}
 filename = 'modelDZ.txt'
@@ -98,7 +98,7 @@ if st.button("Predict"):
             modelXGB = pickle.load(fq, encoding='bytes')
             y_pred = modelXGB.predict_proba(x)
             print(max(y_pred[:,1]))
-            st.header('Probability of pCR: %.2f %%' % (max(y_pred[:,1])* 100))
+            st.header('Probability of BCBM: %.2f %%' % (max(y_pred[:,1])* 100))
             
             
             
