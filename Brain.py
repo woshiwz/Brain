@@ -83,7 +83,7 @@ HER2=st.sidebar.selectbox('HER2', ['Negative',"Positive"])
 HER2_map = {'Negative':0,'Positive':1}
 # IIS = st.sidebar.number_input('IIS', min_value=-10.0, max_value=10.0, value=0.001, step=1.0)
 # HER2_map = {'Negative':0,'Positive':1}
-filename = 'modelDZ.txt'
+filename = 'model2.txt'
 x = []
 x.extend([Radiation_map[Radiation],Chemotherapy_map[Chemotherapy],Surgery_map[Surgery],
           Grade_map[Grade],T_stage_map[T_stage],N_stage_map[N_stage],Stage_map[Stage],
