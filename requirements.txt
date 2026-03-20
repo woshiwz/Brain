@@ -1,0 +1,10 @@
+pandas
+streamlit>=1.35.0
+scikit_learn
+numpy
+matplotlib
+xgboost
+scipy
+ipython
+seaborn
+altair<5.0.0
